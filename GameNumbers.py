@@ -1,7 +1,7 @@
-from asyncore import read
+#from asyncore import read
 from random import Random, randint, random
-import this 
-from tkinter.tix import INTEGER
+#import this 
+#from tkinter.tix import INTEGER
 #mini game, ache o número
 
 x = randint(0,50)

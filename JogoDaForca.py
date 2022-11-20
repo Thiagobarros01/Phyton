@@ -1,0 +1,45 @@
+print("*******JOGO DA FORCA*********")
+
+x = str(input("Digite uma palavra: "))
+print("\n"*100)
+dica = str(input("DIGITE A DICA: "))
+print(dica)
+    # RECEBE A PALAVRA SECRETA + DICA
+
+letras_descobertas = []
+palavra_secreta = list(x)
+s = len(palavra_secreta)
+print(f"A PALAVRA POSSUI {s} letras")
+    #TRANSFORMA A PLAVRA DIGITADA EM UMA LISTA E DIZ QUANTAS LETRAS POSSUI
+
+for i in range(0,len(palavra_secreta)):
+    letras_descobertas.append('-')
+    
+    # PERCORRE PARA VER QUANTAS LETRAS POSSUI NA PALAVRA SECRETA E ADICIONA UM ' - '
+    
+
+acertou = False
+while acertou == False:
+    letra = str(input("Digite uma letra: "))  # IMPEDIR DO USUARIO DIGITAR MAIS DE UMA LETRA POR VEZ
+    
+    if len(letra) > 1:
+           print("DIGITE APENAS UMA LETRA POR VEZ!")
+    else:
+             
+        for i in range(0, len(palavra_secreta)):
+            
+            if letra == palavra_secreta[i]:
+               letras_descobertas[i] = letra
+            print(letras_descobertas[i]) 
+         
+         #VERIFICA SE A LETRA DIGITADA ESTÁ NA LISTA
+                 
+    for i in range(0, len(letras_descobertas)):
+       if letras_descobertas[i] == "-":
+            acertou = False    
+       else:
+           acertou = True
+      
+      # SE AINDA HOUVER ESPAÇO COM "-", ELE MANTEM A CONDICAO DE REPETICAO
+           
+print("PARABÉNS, VOCÊ GANHOU")
