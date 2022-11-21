@@ -1,4 +1,5 @@
 LIFE = 3
+LETRAS_DIGITADAS = []
 def life():
     
     return print(f"Você tem apenas {LIFE} chances")
@@ -36,9 +37,14 @@ while acertou == False and LIFE != 0:
     print(f"Você tem {LIFE} chances")
     letra = str(input("Digite uma letra: "))  # IMPEDIR DO USUARIO DIGITAR MAIS DE UMA LETRA POR VEZ
     
-    if len(letra) > 1:
+    if letra in LETRAS_DIGITADAS:
+     print("Você já digitou esta letra, digite outra")
+         
+    elif len(letra) > 1:
            print("DIGITE APENAS UMA LETRA POR VEZ!")
+          
     else:
+        LETRAS_DIGITADAS.append(letra)
         if not letra in palavra_secreta:
             LIFE -=1
             life()
