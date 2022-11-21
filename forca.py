@@ -12,7 +12,7 @@ def status():
         return print("Você ganhou!")
 
 
-print("*******JOGO DA FORCA*********")
+print("*******PALAVRA MISTERIOSA*********")
 
 x = str(input("Digite uma palavra: "))
 print("\n"*100)
