@@ -1,7 +1,7 @@
 LIFE1 = 3
 LIFE2 = 3
 LETRAS_DIGITADAS_P1 = []
-PALAVRA_SECRETA = []
+ACERTOS = 0
 def life():
     
     return print(f"Você tem apenas {LIFE1} chances")
@@ -14,8 +14,9 @@ def statusPerdeu():
         return print(f"P2 Você perdeu! A palavra secreta é: {PALAVRA_CHAVE}")
 
 def ganhador():
+    print(50*"\n")
     print("Parabéns, você ganhou!!")
-     
+    print(f"Acertou a palavra: {PALAVRA_CHAVE}")     
         
     
    
@@ -40,11 +41,10 @@ for i in range(0,len(palavra_secreta)):
     letras_descobertas.append('-')
     
     # PERCORRE PARA VER QUANTAS LETRAS POSSUI NA PALAVRA SECRETA E ADICIONA UM ' - '
-print(PALAVRA_CHAVE)   
-print(x) 
+
 
 P1 = False
-while P1 == False and LIFE1 != 0:
+while ACERTOS != len(PALAVRA_CHAVE) and LIFE1 != 0:
         
     print(f"P1 Você tem {LIFE1} chances")
     letra = str(input("Digite uma letra: "))  # IMPEDIR DO USUARIO DIGITAR MAIS DE UMA LETRA POR VEZ
@@ -56,6 +56,8 @@ while P1 == False and LIFE1 != 0:
            print("DIGITE APENAS UMA LETRA POR VEZ!")
           
     else:
+        if letra in palavra_secreta:
+            ACERTOS +=1
         LETRAS_DIGITADAS_P1.append(letra)
         
         if not letra in palavra_secreta:
@@ -64,8 +66,8 @@ while P1 == False and LIFE1 != 0:
             P2 = False
             for i in range(0,len(palavra_secreta)):
              letras_descobertas.append('-')
-            while P2 == False and LIFE2 != 0:
-                p2 = []
+            while ACERTOS != len(PALAVRA_CHAVE) and LIFE2 != 0:
+                
                 print(f"Vez do P2, você tem {LIFE2} chances")
                 letra = str(input("Digite uma letra: "))  # IMPEDIR DO USUARIO DIGITAR MAIS DE UMA LETRA POR VEZ
 
@@ -76,6 +78,8 @@ while P1 == False and LIFE1 != 0:
                  print("DIGITE APENAS UMA LETRA POR VEZ!")
                 
                 else:
+                 if letra in palavra_secreta:
+                  ACERTOS +=1   
                  LETRAS_DIGITADAS_P1.append(letra) 
                  if not letra in palavra_secreta:
                   print("A palavra não possui esta letra")
@@ -92,7 +96,9 @@ while P1 == False and LIFE1 != 0:
                     P2 = False    
                   else:
                     P2 = True
-                      
+                
+                
+                       
                             
                   
                             
