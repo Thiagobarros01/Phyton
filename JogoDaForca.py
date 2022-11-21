@@ -5,9 +5,9 @@ def life():
 
 def status():
     if LIFE == 0:
-        return "Você perdeu!"    
+        return print("Você perdeu!")    
     else:
-        return "Você ganhou!"
+        return print("Você ganhou!")
 
 print("*******JOGO DA FORCA*********")
 
@@ -59,4 +59,4 @@ while acertou == False and LIFE != 0:
       
       # SE AINDA HOUVER ESPAÇO COM "-", ELE MANTEM A CONDICAO DE REPETICAO
            
-print(status())
+status()
