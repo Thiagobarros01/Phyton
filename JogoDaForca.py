@@ -5,9 +5,11 @@ def life():
 
 def status():
     if LIFE == 0:
-        return print("Você perdeu!")    
+        return print(f"Você perdeu! A palavra secreta é: {PALAVRA_CHAVE}")
+            
     else:
         return print("Você ganhou!")
+
 
 print("*******JOGO DA FORCA*********")
 
@@ -16,7 +18,7 @@ print("\n"*100)
 dica = str(input("DIGITE A DICA: "))
 print(dica)
     # RECEBE A PALAVRA SECRETA + DICA
-
+PALAVRA_CHAVE = x
 letras_descobertas = []
 palavra_secreta = list(x)
 s = len(palavra_secreta)
