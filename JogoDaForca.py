@@ -54,8 +54,9 @@ while ACERTOS != len(PALAVRA_CHAVE) and LIFE1 != 0:
            print("DIGITE APENAS UMA LETRA POR VEZ!")
           
     else:
-        if letra in palavra_secreta:
-            ACERTOS +=1
+       # if letra in palavra_secreta:
+           # ACERTOS +=1
+            
         LETRAS_DIGITADAS_P1.append(letra)
         
         if not letra in palavra_secreta:
@@ -76,8 +77,8 @@ while ACERTOS != len(PALAVRA_CHAVE) and LIFE1 != 0:
                  print("DIGITE APENAS UMA LETRA POR VEZ!")
                 
                 else:
-                 if letra in palavra_secreta:
-                  ACERTOS +=1   
+                # if letra in palavra_secreta:
+                  #ACERTOS +=1   
                  LETRAS_DIGITADAS_P1.append(letra) 
                  if not letra in palavra_secreta:
                   print("A palavra não possui esta letra")
@@ -86,7 +87,8 @@ while ACERTOS != len(PALAVRA_CHAVE) and LIFE1 != 0:
                  for i in range(0, len(palavra_secreta)):
                 
                   if letra == palavra_secreta[i]:
-                    letras_descobertas[i] = letra      
+                    letras_descobertas[i] = letra
+                    ACERTOS +=1      
                   print(letras_descobertas[i])
                   
                 for i in range(0, len(letras_descobertas)):
@@ -106,7 +108,7 @@ while ACERTOS != len(PALAVRA_CHAVE) and LIFE1 != 0:
             
             if letra == palavra_secreta[i]:
                letras_descobertas[i] = letra
-               
+               ACERTOS +=1
             print(letras_descobertas[i])
             
             
