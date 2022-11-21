@@ -6,12 +6,10 @@ def life():
     
     return print(f"Você tem apenas {LIFE1} chances")
 
-def statusPerdeu():
-    if LIFE1 == 0:
-        return print(f"P1 Você perdeu! A palavra secreta é: {PALAVRA_CHAVE}")
+def Perder():
+    return print("INFELIZMENTE SUAS CHANCES ACABARAM!!")
             
-    elif LIFE2 == 0:
-        return print(f"P2 Você perdeu! A palavra secreta é: {PALAVRA_CHAVE}")
+    
 
 def ganhador():
     print(50*"\n")
@@ -119,7 +117,14 @@ while ACERTOS != len(PALAVRA_CHAVE) and LIFE1 != 0:
             P1 = False    
        else:
             P1 = True
-ganhador()
-statusPerdeu()     
+
+if ACERTOS == len(PALAVRA_CHAVE):
+    ganhador()
+elif LIFE1 == 0:
+    print("JOGADOR 1:")
+    Perder()  
+elif LIFE2 == 0:
+    print("JOGADOR 2:")
+    Perder()       
       # SE AINDA HOUVER ESPAÇO COM "-", ELE MANTEM A CONDICAO DE REPETICAO
            
