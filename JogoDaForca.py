@@ -42,7 +42,7 @@ for i in range(0,len(palavra_secreta)):
 
 
 
-while ACERTOS == len(PALAVRA_CHAVE) or not LIFE1 == 0:
+while ACERTOS == len(PALAVRA_CHAVE) or LIFE1 != 0:
         
     print(f"===P1 Você tem {LIFE1} chances===")
     letra = str(input("Digite uma letra: "))  # IMPEDIR DO USUARIO DIGITAR MAIS DE UMA LETRA POR VEZ
