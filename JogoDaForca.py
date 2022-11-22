@@ -7,7 +7,7 @@ def life():
     return print(f"Você tem apenas {LIFE1} chances")
 
 def Perder():
-    return print("INFELIZMENTE SUAS CHANCES ACABARAM!!")
+    return print(f"INFELIZMENTE SUAS CHANCES ACABARAM!! \n PALAVRA: {PALAVRA_CHAVE}")
             
     
 
@@ -41,10 +41,10 @@ for i in range(0,len(palavra_secreta)):
     # PERCORRE PARA VER QUANTAS LETRAS POSSUI NA PALAVRA SECRETA E ADICIONA UM ' - '
 
 
-P1 = False
-while ACERTOS != len(PALAVRA_CHAVE) and LIFE1 != 0:
+
+while ACERTOS == len(PALAVRA_CHAVE) or not LIFE1 == 0:
         
-    print(f"P1 Você tem {LIFE1} chances")
+    print(f"===P1 Você tem {LIFE1} chances===")
     letra = str(input("Digite uma letra: "))  # IMPEDIR DO USUARIO DIGITAR MAIS DE UMA LETRA POR VEZ
     
     if letra in LETRAS_DIGITADAS_P1:
@@ -62,12 +62,12 @@ while ACERTOS != len(PALAVRA_CHAVE) and LIFE1 != 0:
         if not letra in palavra_secreta:
             LIFE1 -=1
             life()
-            P2 = False
+            
             for i in range(0,len(palavra_secreta)):
              letras_descobertas.append('-')
             while ACERTOS != len(PALAVRA_CHAVE) and LIFE2 != 0:
-                
-                print(f"Vez do P2, você tem {LIFE2} chances")
+                print()
+                print(f"===Vez do P2, você tem {LIFE2} chances===")
                 letra = str(input("Digite uma letra: "))  # IMPEDIR DO USUARIO DIGITAR MAIS DE UMA LETRA POR VEZ
 
                 if letra in LETRAS_DIGITADAS_P1:
@@ -91,12 +91,20 @@ while ACERTOS != len(PALAVRA_CHAVE) and LIFE1 != 0:
                     ACERTOS +=1      
                   print(letras_descobertas[i])
                   
-                for i in range(0, len(letras_descobertas)):
-                  if letras_descobertas[i] == "-":
-                    P2 = False    
-                  else:
-                    P2 = True
-                
+                if ACERTOS == len(PALAVRA_CHAVE):
+                          
+                       ganhador()
+                       print("******JOGADOR 2 VENCEU*********")
+                       exit()
+                       
+                elif LIFE1 == 0:
+                        print("JOGADOR 1:")
+                        Perder()
+                        exit()  
+                elif LIFE2 == 0:
+                        print("JOGADOR 2:")
+                        Perder()
+                        exit()   
                 
                        
                             
@@ -112,21 +120,22 @@ while ACERTOS != len(PALAVRA_CHAVE) and LIFE1 != 0:
             print(letras_descobertas[i])
             
             
-         #VERIFICA SE A LETRA DIGITADA ESTÁ NA LISTA
+         
                  
-    for i in range(0, len(letras_descobertas)):
-       if letras_descobertas[i] == "-":
-            P1 = False    
-       else:
-            P1 = True
-
-if ACERTOS == len(PALAVRA_CHAVE):
-    ganhador()
-elif LIFE1 == 0:
-    print("JOGADOR 1:")
-    Perder()  
-elif LIFE2 == 0:
-    print("JOGADOR 2:")
-    Perder()       
+    
+    
+    if ACERTOS == len(PALAVRA_CHAVE):
+        
+        ganhador()
+        print("******JOGADOR 1 VENCEU*********")
+        exit()
+    elif LIFE1 == 0:
+        print("JOGADOR 1:")
+        Perder()
+        exit()  
+    elif LIFE2 == 0:
+        print("JOGADOR 2:")
+        Perder()
+        exit()       
       # SE AINDA HOUVER ESPAÇO COM "-", ELE MANTEM A CONDICAO DE REPETICAO
            
